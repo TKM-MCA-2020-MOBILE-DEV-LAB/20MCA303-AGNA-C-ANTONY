@@ -1,18 +1,25 @@
-package com.example.grid_view;
+ge com.example.gridalert;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
-
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     GridView gd;
-    int logos[] = {R.drawable.amazon, R.drawable.meesho, R.drawable.nykaa};
-    String[] names ={"AMAZON","Meesho","Nykaa"};
+    int logos[] = {R.drawable.clickme, R.drawable.bike, R.drawable.rain, R.drawable.rainbow,R.drawable.river,R.drawable.travel};
+    String[] names ={"clickme","bike","rain","rainbow","river","travel",};
     final Context context = this;
     AlertDialog.Builder builder;
 
@@ -27,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                builder.setMessage("Website Name : "+String.valueOf(names[position]))
+                builder.setMessage("Name : "+String.valueOf(names[position]))
                         .setCancelable(false)
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -36,9 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
                 AlertDialog alert = builder.create();
 
-                alert.setTitle("Alert Box");
+                alert.setTitle("Info Alert");
                 alert.show();
             }
+
+
         });
+
     }
 }
+
